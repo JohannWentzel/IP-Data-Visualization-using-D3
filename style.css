@@ -8,10 +8,12 @@
 
 .button{
 	margin: 5px;
-	/*outline-color: black;*/
-	color: white;
+	background-color: rgba(150,150,150,0.9);
 }
 
+.colorButton{
+	color: white;
+}
 .redButton{
 	background-color:rgba(200,0,0,0.8);
 
@@ -22,8 +24,16 @@
 
 }
 .greenButton{
-	background-color:rgba(0,200,0,0.8);
+	background-color:rgba(0,180,0,0.8);
 }
 .yellowButton{
-	background-color:rgba(200,200,0,0.8);
+	background-color:rgba(150,150,0,0.8);
+}
+.temmie{
+	width:10%;
+	opacity: 10%;
+}
+.interfaceContainer{
+	background-color: rgba(0,0,0,0.15);
+	box-shadow: 10px 10px 5px #888888;
 }
