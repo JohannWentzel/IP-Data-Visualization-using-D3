@@ -1,0 +1,29 @@
+.backgroundBlue{
+	background-color: blue;
+}
+
+.mapImage{
+	width:90%;
+}
+
+.button{
+	margin: 5px;
+	/*outline-color: black;*/
+	color: white;
+}
+
+.redButton{
+	background-color:rgba(200,0,0,0.8);
+
+
+}
+.blueButton{
+	background-color:rgba(0,0,200,0.8);
+
+}
+.greenButton{
+	background-color:rgba(0,200,0,0.8);
+}
+.yellowButton{
+	background-color:rgba(200,200,0,0.8);
+}

@@ -1,0 +1,108 @@
+<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="datamaps.world.min.js"></script>
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+
+
+<div id="mapContainer" class="col-md-12">
+	<div id="mapImage" class="mapImage"></div>
+</div>
+
+<div class="col-md-3">
+	<button class="col-md-12 button redButton">Themis ASIs</button>
+	<button class="col-md-12 button blueButton">AuroraMax</button>
+	<button class="col-md-12 button greenButton">AG0</button>
+	<button class="col-md-12 button yellowButton">Themis Magnetometers</button>
+</div>
+
+<script>
+    var map = new Datamap({
+    	element: document.getElementById('mapImage'),
+    	fills: {
+    		'themis':'rgba(200,0,0,1)',
+    		'auroramax':'rgba(0,200,0,1)',
+    		'AG0':'rgba(0,0,200,1)',
+    		'magneto':'rgba(200,200,0,1)',
+    		defaultFill: 'rgba(154,154,154,1)'
+    	},
+    	responsive: true,
+    	done: function(datamap) {
+            datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+                alert(geography.properties.name);
+            });
+        }
+    });
+
+         var bombs = [{
+        name: 'Joe 4',
+        radius: 25,
+        yield: 400,
+        country: 'USSR',
+        fillKey: 'themis',
+        significance: 'First fusion weapon test by the USSR (not "staged")',
+        date: '1953-08-12',
+        latitude: 50.07,
+        longitude: 78.43
+      },{
+        name: 'RDS-37',
+        radius: 40,
+        yield: 1600,
+        country: 'USSR',
+        fillKey: 'AG0',
+        significance: 'First "staged" thermonuclear weapon test by the USSR (deployable)',
+        date: '1955-11-22',
+        latitude: 94.07,
+        longitude: 78.43
+
+      },{
+        name: 'Tsar Bomba',
+        radius: 75,
+        yield: 50000,
+        country: 'USSR',
+        fillKey: 'auroramax',
+        significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
+        date: '1961-10-31',
+        latitude: 73.482,
+        longitude: 54.5854
+
+      },{
+        name: 'Nuka Cola',
+        radius: 80,
+        yield: 5000,
+        country: 'USSR',
+        fillKey: 'magneto',
+        significance: 'Herp derp this is a test.',
+        date: '2016-04-10',
+        latitude: -40,
+        longitude: 80
+      }
+    ];
+//draw bubbles for bombs
+map.bubbles(bombs, {
+    popupTemplate: function (geo, data) {
+            return ['<div class="hoverinfo">' +  data.name,
+            '<br/>Payload: ' +  data.yield + ' kilotons',
+            '<br/>Country: ' +  data.country + '',
+            '<br/>Date: ' +  data.date + '',
+            '</div>'].join('');
+    }
+});
+
+    // resize?
+    d3.select(window).on('resize', function() {
+        map.resize();
+    });
+</script>
