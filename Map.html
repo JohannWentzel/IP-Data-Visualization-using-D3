@@ -36,53 +36,20 @@
 
 		<div class="col-md-8">
 			<h4 class="col-md-12 titleText">Data for the past:</h4>
-			<button class="col-md-2 btn button timeButton">6 months</button>
-			<button class="col-md-2 btn button timeButton">3 months</button>
-			<button class="col-md-2 btn button timeButton">1 month</button>
-			<button class="col-md-2 btn button timeButton">1 week</button>
-			<button class="col-md-2 btn button timeButton">1 day</button>
+			<button class="col-md-2 btn button timeButton" onclick="createList('6mo');">6 months</button>
+			<button class="col-md-2 btn button timeButton" onclick="createList('3mo');">3 months</button>
+			<button class="col-md-2 btn button timeButton" onclick="createList('1mo');">1 month</button>
+			<button class="col-md-2 btn button timeButton" onclick="createList('1w');">1 week</button>
+			<button class="col-md-2 btn button timeButton" onclick="createList('1d');">1 day</button>
 			
 		</div> 
 
 		<div class="col-md-2">
-			<button class="col-md-12 btn button">Reset</button>
+			<button class="col-md-12 btn button" onclick="resetBubbles();">Show all</button>
 		</div>
 	</div>
 
 	<script>
-	    var map = new Datamap({
-	    	element: document.getElementById('mapImage'),
-	    	projection: 'mercator',
-	    	fills: {
-	    		'themis':'rgba(200,0,0,1)',
-	    		'auroramax':'rgba(0,200,0,1)',
-	    		'AG0':'rgba(0,0,200,1)',
-	    		'magneto':'rgba(200,200,0,1)',
-	    		defaultFill: 'rgba(154,154,154,1)'
-	    	},
-	    	responsive: true,
-	    	done: function(datamap) {
-	            datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-	                alert(geography.properties.name);
-	            });
-	        }
-	    });
-
-	         
-	//draw bubbles for bombs
-	map.bubbles(bombs, {
-	    popupTemplate: function (geo, data) {
-	            return ['<div class="hoverinfo">' +  data.name,
-	            '<br/>Payload: ' +  data.yield + ' kilotons',
-	            '<br/>Country: ' +  data.country + '',
-	            '<br/>Date: ' +  data.date + '',
-	            '</div>'].join('');
-	    }
-	});
-
-	    // resize?
-	    d3.select(window).on('resize', function() {
-	        map.resize();
-	    });
+	    createMap();
 	</script>
 </body>

@@ -1,11 +1,11 @@
-var bombs = [{
+var data = [{
         name: 'Joe 9000',
         radius: 25,
         yield: 400,
         country: 'USSR',
         fillKey: 'themis',
         significance: 'First fusion weapon test by the USSR (not "staged")',
-        date: '1953-08-12',
+        date: '2016-02-03',
         latitude: 50.07,
         longitude: 78.43
       },{
@@ -15,7 +15,7 @@ var bombs = [{
         country: 'USSR',
         fillKey: 'AG0',
         significance: 'First "staged" thermonuclear weapon test by the USSR (deployable)',
-        date: '1955-11-22',
+        date: '2016-04-05',
         latitude: 80.07,
         longitude: 78.43
 
@@ -26,7 +26,7 @@ var bombs = [{
         country: 'USSR',
         fillKey: 'auroramax',
         significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-        date: '1961-10-31',
+        date: '2015-10-31',
         latitude: 73.482,
         longitude: 54.5854
 
@@ -40,5 +40,15 @@ var bombs = [{
         date: '2016-04-10',
         latitude: -40,
         longitude: 80
+      },{
+        name: 'Another Test',
+        radius: 80,
+        yield: 5000,
+        country: 'USSR',
+        fillKey: 'magneto',
+        significance: 'Herp derp this is a test.',
+        date: '2016-03-27',
+        latitude: -10,
+        longitude: 40
       }
     ];
