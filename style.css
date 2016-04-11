@@ -1,7 +1,9 @@
 .backgroundBlue{
 	background-color: blue;
 }
-
+.mapContainer{
+	padding-bottom: 10px;
+}
 .mapImage{
 	width:90%;
 }
@@ -28,6 +30,7 @@
 }
 .yellowButton{
 	background-color:rgba(150,150,0,0.8);
+	font-size: 11;
 }
 .temmie{
 	width:10%;
@@ -35,5 +38,14 @@
 }
 .interfaceContainer{
 	background-color: rgba(0,0,0,0.15);
-	box-shadow: 10px 10px 5px #888888;
+	box-shadow: 5px 5px 5px #888888;
+	margin: 5px;
+}
+.timeButton{
+	background-color: rgba(30,30,30,0.6);
+	color: white;
+}
+
+.titleText{
+	text-align: center;
 }
