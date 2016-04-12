@@ -1,11 +1,14 @@
 
 import csv
 import pygeoip
- 
+import codecs 
+import json
+
 def main():
     # geoip_country() 
     # geoip_city()
     readcsv()
+    testEdit()
     print 'done'
  
 def geoip_city():
@@ -37,24 +40,62 @@ def geoip_country():
 def readcsv():
     path = './GeoLiteCity.dat'
     gic = pygeoip.GeoIP(path)
-    with open('rawIPs.csv') as csvfile:
+    city = ""
+    latitude = ""
+    longitude = ""
+    project = ""
+    finalArray = []
+
+    with open('Shuffled 300k Apache.csv') as csvfile:
         reader = csv.DictReader(csvfile)
-        i = 0
-        for row in reader:
-            # print (i)
-            i += 1
-            currentRow = gic.record_by_addr(row['IP'])
-            if currentRow != None:
-                city = currentRow['city']
-                latitude = currentRow['latitude']
-                longitude = currentRow['longitude']
-                print(city, latitude, longitude)
-            else:
-                print("VALUE NONE - SKIPPED")
-                city = None
-                latitude = None
-                longitude = None
-            
+        # with open('Apache300kLocated.csv', 'w') as newCSV:
+        with open('newJSON.txt', 'w') as outfile:
+            i = 0
+            fieldNames = ['Date', 'Time', 'Project','Size','City','Latitude','Longitude']
+            # writer = csv.DictWriter(newCSV, fieldnames=fieldNames)
+            # writer.writeheader()
+            for row in reader:
+                print (i)
+                # print(row)
+                i += 1
+                if row['auroramax'] == "1":
+                    project = "auroramax"
+                elif row['ag0'] == "1":
+                    project = "ag0"
+                elif row['magneto'] == "1":
+                    project = "magneto"
+                elif row['themisASI'] == "1":
+                    project = "themisASI"
+
+                currentRow = gic.record_by_addr(row['IP'])
+                if currentRow != None:
+                    if currentRow['city'] != None:
+                        city = currentRow['city'].encode('utf-8')
+                    else:
+                        city = "None"
+                    latitude = currentRow['latitude']
+                    longitude = currentRow['longitude']
+                    # print(city, latitude, longitude)
+                else:
+                    # print("VALUE NONE - SKIPPED")
+                    city = "None"
+                    latitude = "None"
+                    longitude = "None"
+                writeDict = {"Date":row["Date"], "Time":row["Time"], "Project":project, "Size":row["reqSize"], "City":city,"Latitude":latitude,"Longitude":longitude}
+                # print(writeDict)
+                # writer.writerow(writeDict)
+                finalArray.append(writeDict)
+            # json.dump(finalArray,outfile)
+
+
+def testEdit():
+    with open('testCSV2.csv', 'w') as csvfile:
+        fieldNames = ['Name', 'Age', 'Colour']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldNames)
+
+        writer.writeheader()
+        writer.writerow({'Name': "Evil Twin", 'Age':'20000', 'Colour':'Black'})
+
 
 
 if __name__ == '__main__':

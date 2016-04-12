@@ -43,14 +43,27 @@ function createList(time){
 	drawBubbles();
 }
 
+function filterProjects(project){
+	listToDisplay = [];
+	for (var i = data.length - 1; i >= 0; i--) {
+		if (data[i]["fillKey"] == String(project)){
+			console.log(data[i]["City"]); 
+			listToDisplay.push(data[i]);
+		};
+			
+	};
+	console.log(listToDisplay);
+	drawBubbles();
+}
+
 function createMap(){
 	map = new Datamap({
 	    	element: document.getElementById('mapImage'),
 	    	projection: 'mercator',
 	    	fills: {
-	    		'themis':'rgba(200,0,0,1)',
-	    		'auroramax':'rgba(0,200,0,1)',
-	    		'AG0':'rgba(0,0,200,1)',
+	    		'themisASI':'rgba(200,0,0,1)',
+	    		'ag0':'rgba(0,200,0,1)',
+	    		'auroramax':'rgba(0,0,200,1)',
 	    		'magneto':'rgba(200,200,0,1)',
 	    		defaultFill: 'rgba(154,154,154,1)'
 	    	},
@@ -66,10 +79,8 @@ function createMap(){
 	//draw bubbles for data
 	map.bubbles(data, {
 	    popupTemplate: function (geo, data) {
-	            return ['<div class="hoverinfo">' +  data.name,
-	            '<br/>Payload: ' +  data.yield + ' kilotons',
-	            '<br/>Country: ' +  data.country + '',
-	            '<br/>Date: ' +  data.date + '',
+	            return ['<div class="hoverinfo">' +  data["City"],
+	            '<br/>Requests: ' +  data["Number of requests"] + '',
 	            '</div>'].join('');
 	    }
 	});
@@ -83,22 +94,19 @@ function createMap(){
 function resetBubbles(){
 	map.bubbles(data, {
 	    popupTemplate: function (geo, data) {
-	            return ['<div class="hoverinfo">' +  data.name,
-	            '<br/>Payload: ' +  data.yield + ' kilotons',
-	            '<br/>Country: ' +  data.country + '',
-	            '<br/>Date: ' +  data.date + '',
+	            return ['<div class="hoverinfo">' +  data["City"],
+	            '<br/>Requests: ' +  data["Number of requests"] + '',
 	            '</div>'].join('');
 	    }
 	});
 }
 
 function drawBubbles(){
+
 	map.bubbles(listToDisplay, {
 	    popupTemplate: function (geo, data) {
-	            return ['<div class="hoverinfo">' +  data.name,
-	            '<br/>Payload: ' +  data.yield + ' kilotons',
-	            '<br/>Country: ' +  data.country + '',
-	            '<br/>Date: ' +  data.date + '',
+	            return ['<div class="hoverinfo">' +  data["City"],
+	            '<br/>Requests: ' +  data["Number of requests"] + '',
 	            '</div>'].join('');
 	    }
 	});
