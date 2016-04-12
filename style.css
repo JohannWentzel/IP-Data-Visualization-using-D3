@@ -10,7 +10,8 @@
 
 .button{
 	margin: 5px;
-	background-color: rgba(150,150,150,0.9);
+	background-color: rgba(100,100,100,0.9);
+	color: white;
 }
 
 .colorButton{
@@ -42,7 +43,7 @@
 	margin: 5px;
 }
 .timeButton{
-	background-color: rgba(30,30,30,0.6);
+	background-color: rgba(30,30,30,0.3);
 	color: white;
 }
 

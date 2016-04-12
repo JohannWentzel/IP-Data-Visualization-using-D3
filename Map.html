@@ -36,11 +36,12 @@
 
 		<div class="col-md-8">
 			<h4 class="col-md-12 titleText">Data for the past:</h4>
-			<button class="col-md-2 btn button timeButton" onclick="createList('6mo');">6 months</button>
-			<button class="col-md-2 btn button timeButton" onclick="createList('3mo');">3 months</button>
-			<button class="col-md-2 btn button timeButton" onclick="createList('1mo');">1 month</button>
-			<button class="col-md-2 btn button timeButton" onclick="createList('1w');">1 week</button>
-			<button class="col-md-2 btn button timeButton" onclick="createList('1d');">1 day</button>
+			<button class="col-md-2 btn button timeButton disabled" onclick="createList('6mo');">6 months</button>
+			<button class="col-md-2 btn button timeButton disabled" onclick="createList('3mo');">3 months</button>
+			<button class="col-md-2 btn button timeButton disabled" onclick="createList('1mo');">1 month</button>
+			<button class="col-md-2 btn button timeButton disabled" onclick="createList('1w');">1 week</button>
+			<button class="col-md-2 btn button timeButton disabled" onclick="createList('1d');">1 day</button>
+			<p class="col-md-12 text-center" style="visibility:hidden" id="errorMessage">Time filters disabled for the demo version!</p>
 			
 		</div> 
 
