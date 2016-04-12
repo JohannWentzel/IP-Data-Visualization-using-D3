@@ -32,13 +32,13 @@ function createList(time){
 	for (var i = 0; i < data.length; i++) {
 		var tempDateArray = data[i].date.split('-');
 		var tempDate = new Date(tempDateArray[0],tempDateArray[1] - 1,tempDateArray[2],0,0,0,0);
-		console.log("Comparing " + tempDate + " to " + (new Date(comparisonDate)).toString());
+		// console.log("Comparing " + tempDate + " to " + (new Date(comparisonDate)).toString());
 		if (tempDate > comparisonDate)
 		{
 			listToDisplay.push(data[i]);
 		}
 	};
-	console.log(listToDisplay);
+	// console.log(listToDisplay);
 
 	drawBubbles();
 }
@@ -103,3 +103,9 @@ function drawBubbles(){
 	    }
 	});
 }
+
+/*
+
+- COLOR: most requests from that project
+- AREA: number of requests from that place.
+*/
