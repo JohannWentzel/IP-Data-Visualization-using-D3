@@ -3,6 +3,11 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 	<script src="datamaps.world.min.js"></script>
 	<script src="bubbleData.js"></script>
+	<script src="ag0data.js"></script>
+	<script src="themisASIdata.js"></script>
+	<script src="magnetoData.js"></script>
+	<script src="auroramaxdata.js"></script>
+
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="scripts.js"></script>
@@ -26,7 +31,7 @@
 	<div class="interfaceContainer col-md-12">
 		<h4 class="visible-xs-block">Buttons weird? Check it out on desktop!</h4>
 		<div class="col-md-2 center-block">
-			<h4 class="col-md-12 titleText">Project</h4>
+			<h4 class="col-md-12 titleText">View Project</h4>
 			<button class="col-md-12 btn button colorButton redButton" onclick="filterProjects('themisASI')">Themis ASIs</button>
 			<button class="col-md-12 btn button colorButton blueButton" onclick="filterProjects('auroramax')">AuroraMax</button>
 			<button class="col-md-12 btn button colorButton greenButton" onclick="filterProjects('ag0')">AG0</button>
@@ -46,9 +51,44 @@
 		</div> 
 
 		<div class="col-md-2">
-			<button class="col-md-12 btn button" onclick="resetBubbles();">Show all</button>
+			<button class="col-md-12 btn button" onclick="resetBubbles();">Top 100</button>
+			<button class="col-md-12 btn button" onclick="location.reload();">Reset map</button>
 		</div>
 	</div>
+	<button class="btn button col-xs-12" data-toggle="collapse" data-target="#additionalInfo">Show Data Statistics</button>
+	<div id="additionalInfo" class="collapse">
+		<div class="graphContainer col-sm-6" id="chart">
+			<img src="chart1.png" style="width:100%"/>
+		</div>
+		<div class="top20Container col-sm-6">
+			<h4>Top 20 Most Downloaded</h4>
+			<small>
+				<ol>
+					<li>summary_plots/slr-rt/yknf/recent_480p.jpg <strong>(8156)</strong></li>
+					<li>summary_plots/slr-rt/yknf/yknf_latest_720p.mp4 <strong>(1442)</strong></li>
+					<li>summary_plots/slr-rt/yknf/recent_1080p.jpg <strong>(1216)</strong></li>
+					<li>summary_plots/rainbow-rt/yknf/latest.jpg <strong>(666)</strong></li>
+					<li>summary_plots/star-rt/dataflow/validate/ucla-fluxgate/rrd/themis_whit_gmag/themis_whit_gmag_b1.1day,now.png <strong>(316)</strong></li>
+					<li>summary_plots/star-rt/dataflow/validate/ucla-fluxgate/rrd/themis_kapu_gmag/themis_whit_kapu_b1.1day,now.png <strong>(313)</strong></li>
+					<li>summary_plots/feso-rt/summary_plots/RECENT_atha_feso-01-keogram-summary-plot.png <strong>(312)</strong></li>
+					<li>summary_plots/star-rt/dataflow/validate/ucla-fluxgate/rrd/pgeo/themis_pgeo_gmag_b1.1day,now.png <strong>(307)</strong></li>
+					<li>summary_plots/feso-rt/summary_plots/RECENT_atha_feso-02-keogram-summary-plot.png <strong>(305)</strong></li>
+					<li>summary_plots/star-rt/dataflow/validate/ucla-fluxgate/rrd/chbg/themis_chbg_gmag_b1.1day,now.png <strong>(289)</strong></li>
+					<li>summary_plots/feso-rt/summary_plots/RECENT_atha_feso_01-hsk.png <strong>(273)</strong></li>
+					<li>summary_plots/feso-rt/summary_plots/RECENT_atha_feso_02-hsk.png <strong>(203)</strong></li>
+					<li>summary_plots/star-rt/dataflow/validate/ucla-fluxgate/rrd/autumn_inuv_gmag/autumn_inuv_gmag_b1.1day,now.png <strong>(192)</strong></li>
+					<li>summary_plots/rainbow-rt/yknf/latest.jpg? <strong>(131)</strong></li>
+					<li>summary_plots/slr-rt/yknf/recent_SD.jpg <strong>(130)</strong></li>
+					<li>summary_plots/star-rt/dataflow/validate/ucla-fluxgate/rrd/themis_kian_gmag/themis_kian_gmag_b1.1day,now.png <strong>(107)</strong></li>
+					<li>summary_plots/star-rt/dataflow/validate/ucla-fluxgate/rrd/themis_gbay_gmag/themis_gbay_gmag_b1.1day,now.png <strong>(106)</strong></li>
+					<li>summary_plots/slr-rt/yknf/recent_480p.jpg?1340991645428 <strong>(105)</strong></li>
+					<li>summary_plots/slr-rt/yknf/recent_480p.jpg?1410491331201 <strong>(59)</strong></li>
+					<li>summary_plots/star-rt/dataflow/validate/ucla-fluxgate/rrd/themis_tpas_gmag/themis_tpas_gmag_b1.1day,now.png <strong>(106)</strong></li>
+				</ol>
+			</small>	
+		</div>
+	</div>
+		
 
 	<script>
 	    createMap();
