@@ -1,17 +1,29 @@
+.mainPage{
+	max-width:1200px; 
+	margin:auto;
+
+}
+
 .backgroundBlue{
 	background-color: blue;
 }
 .mapContainer{
 	padding-bottom: 10px;
+	max-width: 1100px;
+	margin:auto;
 }
 .mapImage{
-	width:90%;
+	width:100%;
+
 }
 
 .button{
 	margin: 5px;
 	background-color: rgba(100,100,100,0.9);
 	color: white;
+}
+.button:hover{
+	color:white;
 }
 
 .colorButton{

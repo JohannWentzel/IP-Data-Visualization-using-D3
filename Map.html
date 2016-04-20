@@ -20,9 +20,10 @@
 	<!-- Bootstrap JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>AIG Visualizations - Johann Wentzel</title>
 </head>
 
-<body>
+<body class="mainPage">
 
 	<div id="mapContainer" class="col-md-12 mapContainer">
 		<div id="mapImage" class="mapImage"></div>
@@ -46,19 +47,20 @@
 			<button class="col-md-2 btn button timeButton disabled" onclick="createList('1mo');">1 month</button>
 			<button class="col-md-2 btn button timeButton disabled" onclick="createList('1w');">1 week</button>
 			<button class="col-md-2 btn button timeButton disabled" onclick="createList('1d');">1 day</button>
-			<p class="col-md-12 text-center" style="visibility:hidden" id="errorMessage">Time filters disabled for the demo version!</p>
+			<p class="col-md-12 text-center" style="visibility:hidden" id="errorMessage">Time filters disabled for the demo version! The data set is massive so that would be infeasible.</p>
 			
 		</div> 
 
 		<div class="col-md-2">
-			<button class="col-md-12 btn button" onclick="resetBubbles();">Top 100</button>
+			<h4 class="titleText col-md-12">Additional Settings</h4>
+			<button class="col-md-12 btn button" onclick="resetBubbles();">Show all</button>
 			<button class="col-md-12 btn button" onclick="location.reload();">Reset map</button>
 		</div>
 	</div>
 	<button class="btn button col-xs-12" data-toggle="collapse" data-target="#additionalInfo">Show Data Statistics</button>
 	<div id="additionalInfo" class="collapse">
 		<div class="graphContainer col-sm-6" id="chart">
-			<img src="chart1.png" style="width:100%"/>
+			<img src="chart1.png" style="width:100%; max-width:400px; text-align:center;"/>
 		</div>
 		<div class="top20Container col-sm-6">
 			<h4>Top 20 Most Downloaded</h4>
